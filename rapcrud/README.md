@@ -3,7 +3,7 @@
 # Informations
 
 Use &sap-ui-language=PT for local testing  
-This RAP CRUDQ does not have actions.
+This RAP CRUDQ does not have actions. Field criado_em: @Semantics.systemDate.createdAt: true, beacuse it is date formatted.
 
 # Technical Informations
 
