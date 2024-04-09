@@ -47,6 +47,8 @@
                 <Key>
                     <PropertyRef Name="id"/>
                 </Key>
+                <Property Name="Delete_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Update_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="id" Type="Edm.Int16" Nullable="false" sap:label="Código Produto" sap:quickinfo="Nº inteiro 2 bytes (com sinal)"/>
                 <Property Name="descricao" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Descrição" sap:quickinfo="Campo de usuário p/cluster PC nacional"/>
                 <Property Name="categoria" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Categoria" sap:quickinfo="Campo de usuário p/cluster PC nacional"/>
@@ -222,7 +224,7 @@
                 <EntitySet Name="SAP__CoverPageSet" EntityType="cds_z270ui_rapcrudmaterial2.SAP__CoverPage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="SAP__SignatureSet" EntityType="cds_z270ui_rapcrudmaterial2.SAP__Signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_z270ui_rapcrudmaterial2.SAP__ValueHelp" sap:content-version="1"/>
-                <EntitySet Name="Material" EntityType="cds_z270ui_rapcrudmaterial2.MaterialType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Material" EntityType="cds_z270ui_rapcrudmaterial2.MaterialType" sap:content-version="1" sap:deletable-path="Delete_mc" sap:updatable-path="Update_mc"/>
                 <EntitySet Name="SAP__Currencies" EntityType="cds_z270ui_rapcrudmaterial2.SAP__Currency" sap:content-version="1"/>
                 <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_z270ui_rapcrudmaterial2.SAP__UnitOfMeasure" sap:content-version="1"/>
                 <EntitySet Name="SAP__MyDocumentDescriptions" EntityType="cds_z270ui_rapcrudmaterial2.SAP__DocumentDescription" sap:content-version="1"/>
@@ -249,6 +251,31 @@
             </EntityContainer>
             <Annotations Target="cds_z270ui_rapcrudmaterial2.cds_z270ui_rapcrudmaterial2_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_z270ui_rapcrudmaterial2.cds_z270ui_rapcrudmaterial2_Entities/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>Delete_mc</PropertyPath>
+                                <PropertyPath>Update_mc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>Delete_mc</PropertyPath>
+                                <PropertyPath>Update_mc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
             </Annotations>
             <Annotations Target="cds_z270ui_rapcrudmaterial2.cds_z270ui_rapcrudmaterial2_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">

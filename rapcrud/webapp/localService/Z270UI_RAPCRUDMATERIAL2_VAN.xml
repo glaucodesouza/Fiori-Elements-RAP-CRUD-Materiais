@@ -26,6 +26,12 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema Namespace="z270ui_rapcrudmaterial2_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_z270ui_rapcrudmaterial2.MaterialType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_z270ui_rapcrudmaterial2.MaterialType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="cds_z270ui_rapcrudmaterial2.MaterialType">
                 <Annotation Term="UI.Facets">
                     <Collection>
@@ -38,6 +44,14 @@
                 </Annotation>
                 <Annotation Term="UI.Identification">
                     <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Valor"/>
+                            <PropertyValue Property="Value" Path="valor"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Moeda"/>
+                            <PropertyValue Property="Value" Path="moeda"/>
+                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Tipo do Material"/>
                             <PropertyValue Property="Value" Path="categoria"/>
